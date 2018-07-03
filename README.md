@@ -6,7 +6,7 @@ Docker
 To build an Nginx image and test
 docker build -t nginx_test_1 .
 
-To bbuild the Nginx container from the docker image
+To build the Nginx container from the docker image
 docker run -p 80:80 -p 443:443 -it -d nginx_test_1 sh
 
 To get the terminal 
