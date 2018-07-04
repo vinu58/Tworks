@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  nginx:
+#    container_name: nginx
+    build: ./nginx
+    expose:
+      - "80"
+      - "443"
+    links:
+      - tomcat
+  tomcat:
+#    container_name: tomcat
+    build: ./tomcat
+    expose:
+      - "8080"

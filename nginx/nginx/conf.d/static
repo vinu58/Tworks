@@ -1,0 +1,27 @@
+server {
+
+        listen 80;
+        listen [::]:80;
+        server_name 0.0.0.0;
+        root /var/lib/nginx/static/;
+
+	listen 443 ssl http2 default_server;
+        listen [::]:443 ssl http2 default_server;
+        include /etc/nginx/snippets/self-signed.conf;
+        include /etc/nginx/snippets/ssl-params.conf;
+
+        location /images/ {
+                root /var/lib/nginx/static/;
+		ProxyPass        /images  http://0.0.0.0:8080;
+		ProxyPassReverse /images http://0.0.0.0:8080;
+        }
+
+        location /styles/ {
+                root /var/lib/nginx/static/;
+		ProxyPass        /styles  http://0.0.0.0:8080;
+		ProxyPassReverse /styles http://0.0.0.0:8080;
+        }
+}
+
+
+
